@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  postgresql:
+    image: bitnami/postgresql:14.9.0
+    environment:
+      POSTGRESQL_POSTGRES_PASSWORD: secret
+      POSTGRESQL_USERNAME: mattermost
+      POSTGRESQL_PASSWORD: secret
+      POSTGRESQL_DATABASE: mmuser
+
+  mattermost:
+    image: mattermost/mattermost-preview
+    environment:
+      MM_SQLSETTINGS_DRIVERNAME: postgres
+      MM_SQLSETTINGS_DATASOURCE: postgres://mattermost:secret@postgresql:5432/mattermost?sslmode=disable&connect_timeout=10
+    ports:
+      - "8065:8065"
+    depends_on:
+      - postgresql
+
