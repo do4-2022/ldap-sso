@@ -1,27 +1,18 @@
 version: "3"
 
 services:
-  postgresql:
-    image: bitnami/postgresql:14.9.0
-    environment:
-      POSTGRESQL_POSTGRES_PASSWORD: secret
-      POSTGRESQL_USERNAME: mattermost
-      POSTGRESQL_PASSWORD: secret
-      POSTGRESQL_DATABASE: mmuser
-
   openldap:
-    image: docker.io/bitnami/openldap:2.6
+    image: bitnami/openldap:2
+    ports:
+      - "1389:1389"
+      - "1636:1636"
     environment:
       - LDAP_ADMIN_USERNAME=admin
-      - LDAP_ADMIN_PASSWORD=admin
-      - LDAP_USERS=user1,user2
-      - LDAP_PASSWORDS=password1,password2
-    ports:
-      - "389:389"
-      - "636:636"
+      - LDAP_ADMIN_PASSWORD=secret
+      - LDAP_USERS=user01,user02
+      - LDAP_PASSWORDS=secret1,secret2
     volumes:
-      - ./ldap/var/lib/ldap:/var/lib/ldap
-      - ./ldap/etc/ldap/slapd.d:/etc/ldap/slapd.d
+      - openldap-data:/bitnami/openldap
 
   keycloak:
     image: jboss/keycloak
@@ -45,8 +36,8 @@ services:
       - "22:22"
     volumes:
       - ./conf_files/gitlab.rb:/etc/gitlab/gitlab.rb
-      - data:/var/opt/gitlab
+      - gitlab-data:/var/opt/gitlab
 
 volumes:
-  data:
-
+  openldap-data:
+  gitlab-data:
