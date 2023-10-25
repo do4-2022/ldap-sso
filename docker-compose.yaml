@@ -9,6 +9,20 @@ services:
       POSTGRESQL_PASSWORD: secret
       POSTGRESQL_DATABASE: mmuser
 
+  openldap:
+    image: bitnami/openldap:1.5.0
+    environment:
+      LDAP_ORGANISATION: "Example Inc."
+      LDAP_DOMAIN: "example.org"
+      LDAP_ADMIN_PASSWORD: "admin"
+      LDAP_BASE_DN: "dc=example,dc=org"
+    ports:
+      - "389:389"
+      - "636:636"
+    volumes:
+      - ./ldap/var/lib/ldap:/var/lib/ldap
+      - ./ldap/etc/ldap/slapd.d:/etc/ldap/slapd.d
+
   keycloak:
     image: jboss/keycloak
     environment:
@@ -17,10 +31,10 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - postgresql
+      - openldap
 
   mattermost:
-    image: mattermost/mattermost-team-edition:5.39.0
+    image: mattermost/mattermost-enterprise-edition:9.2.0-rc1
     environment:
       MM_SQLSETTINGS_DRIVERNAME: postgres
       MM_SQLSETTINGS_DATASOURCE: postgres://mattermost:secret@postgresql:5432/mattermost?sslmode=disable&connect_timeout=10
