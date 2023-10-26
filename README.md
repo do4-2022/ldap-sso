@@ -30,6 +30,22 @@ To launch the services with Keycloak as an intermediary, run the following comma
 $ docker compose -f dc-with-keycloak.yaml up -d
 ```
 
+## Usage
+
+**URLs**
+
+OpenLDAP url (unsecure): `ldap://localhost:1389`
+
+Keycloak url: `http://localhost:8080`
+
+GitLab url: `http://localhost`
+
+**Credentials**
+
+OpenLDAP admin credentials: `cn=admin,dc=example,dc=org` / `secret`
+
+Keycloak admin credentials: `admin` / `secret`
+
 ## Features
 
 - **Direct Connection**: Provides a Docker Compose configuration for a direct connection between GitLab and OpenLDAP.

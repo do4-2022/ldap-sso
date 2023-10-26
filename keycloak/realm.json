@@ -51,9 +51,7 @@
     "clientRole": false,
     "containerId": "e3797d06-7f01-4729-a4af-267110814e1b"
   },
-  "requiredCredentials": [
-    "password"
-  ],
+  "requiredCredentials": ["password"],
   "otpPolicyType": "totp",
   "otpPolicyAlgorithm": "HmacSHA1",
   "otpPolicyInitialCounter": 0,
@@ -67,9 +65,7 @@
     "totpAppFreeOTPName"
   ],
   "webAuthnPolicyRpEntityName": "keycloak",
-  "webAuthnPolicySignatureAlgorithms": [
-    "ES256"
-  ],
+  "webAuthnPolicySignatureAlgorithms": ["ES256"],
   "webAuthnPolicyRpId": "",
   "webAuthnPolicyAttestationConveyancePreference": "not specified",
   "webAuthnPolicyAuthenticatorAttachment": "not specified",
@@ -79,9 +75,7 @@
   "webAuthnPolicyAvoidSameAuthenticatorRegister": false,
   "webAuthnPolicyAcceptableAaguids": [],
   "webAuthnPolicyPasswordlessRpEntityName": "keycloak",
-  "webAuthnPolicyPasswordlessSignatureAlgorithms": [
-    "ES256"
-  ],
+  "webAuthnPolicyPasswordlessSignatureAlgorithms": ["ES256"],
   "webAuthnPolicyPasswordlessRpId": "",
   "webAuthnPolicyPasswordlessAttestationConveyancePreference": "not specified",
   "webAuthnPolicyPasswordlessAuthenticatorAttachment": "not specified",
@@ -93,19 +87,14 @@
   "scopeMappings": [
     {
       "clientScope": "offline_access",
-      "roles": [
-        "offline_access"
-      ]
+      "roles": ["offline_access"]
     }
   ],
   "clientScopeMappings": {
     "account": [
       {
         "client": "account-console",
-        "roles": [
-          "manage-account",
-          "view-groups"
-        ]
+        "roles": ["manage-account", "view-groups"]
       }
     ]
   },
@@ -120,9 +109,7 @@
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "redirectUris": [
-        "/realms/polytech/account/*"
-      ],
+      "redirectUris": ["/realms/polytech/account/*"],
       "webOrigins": [],
       "notBefore": 0,
       "bearerOnly": false,
@@ -164,9 +151,7 @@
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "redirectUris": [
-        "/realms/polytech/account/*"
-      ],
+      "redirectUris": ["/realms/polytech/account/*"],
       "webOrigins": [],
       "notBefore": 0,
       "bearerOnly": false,
@@ -301,13 +286,9 @@
       "enabled": true,
       "alwaysDisplayInConsole": true,
       "clientAuthenticatorType": "client-secret",
-      "secret": "**********",
-      "redirectUris": [
-        "http://localhost/users/auth/openid_connect/callback"
-      ],
-      "webOrigins": [
-        "http://localhost"
-      ],
+      "secret": "secret",
+      "redirectUris": ["http://localhost/users/auth/openid_connect/callback"],
+      "webOrigins": ["http://localhost"],
       "notBefore": 0,
       "bearerOnly": false,
       "consentRequired": false,
@@ -394,12 +375,8 @@
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "redirectUris": [
-        "/admin/polytech/console/*"
-      ],
-      "webOrigins": [
-        "+"
-      ],
+      "redirectUris": ["/admin/polytech/console/*"],
+      "webOrigins": ["+"],
       "notBefore": 0,
       "bearerOnly": false,
       "consentRequired": false,
@@ -985,9 +962,7 @@
   },
   "smtpServer": {},
   "eventsEnabled": false,
-  "eventsListeners": [
-    "jboss-logging"
-  ],
+  "eventsListeners": ["jboss-logging"],
   "enabledEventTypes": [],
   "adminEventsEnabled": false,
   "adminEventsDetailsEnabled": false,
@@ -1029,9 +1004,7 @@
         "subType": "anonymous",
         "subComponents": {},
         "config": {
-          "max-clients": [
-            "200"
-          ]
+          "max-clients": ["200"]
         }
       },
       {
@@ -1041,9 +1014,7 @@
         "subType": "anonymous",
         "subComponents": {},
         "config": {
-          "allow-default-scopes": [
-            "true"
-          ]
+          "allow-default-scopes": ["true"]
         }
       },
       {
@@ -1053,12 +1024,8 @@
         "subType": "anonymous",
         "subComponents": {},
         "config": {
-          "host-sending-registration-request-must-match": [
-            "true"
-          ],
-          "client-uris-must-match": [
-            "true"
-          ]
+          "host-sending-registration-request-must-match": ["true"],
+          "client-uris-must-match": ["true"]
         }
       },
       {
@@ -1095,9 +1062,7 @@
         "subType": "authenticated",
         "subComponents": {},
         "config": {
-          "allow-default-scopes": [
-            "true"
-          ]
+          "allow-default-scopes": ["true"]
         }
       }
     ],
@@ -1114,21 +1079,11 @@
               "providerId": "user-attribute-ldap-mapper",
               "subComponents": {},
               "config": {
-                "ldap.attribute": [
-                  "createTimestamp"
-                ],
-                "is.mandatory.in.ldap": [
-                  "false"
-                ],
-                "always.read.value.from.ldap": [
-                  "true"
-                ],
-                "read.only": [
-                  "true"
-                ],
-                "user.model.attribute": [
-                  "createTimestamp"
-                ]
+                "ldap.attribute": ["createTimestamp"],
+                "is.mandatory.in.ldap": ["false"],
+                "always.read.value.from.ldap": ["true"],
+                "read.only": ["true"],
+                "user.model.attribute": ["createTimestamp"]
               }
             },
             {
@@ -1137,21 +1092,11 @@
               "providerId": "user-attribute-ldap-mapper",
               "subComponents": {},
               "config": {
-                "ldap.attribute": [
-                  "sn"
-                ],
-                "is.mandatory.in.ldap": [
-                  "true"
-                ],
-                "always.read.value.from.ldap": [
-                  "true"
-                ],
-                "read.only": [
-                  "false"
-                ],
-                "user.model.attribute": [
-                  "lastName"
-                ]
+                "ldap.attribute": ["sn"],
+                "is.mandatory.in.ldap": ["true"],
+                "always.read.value.from.ldap": ["true"],
+                "read.only": ["false"],
+                "user.model.attribute": ["lastName"]
               }
             },
             {
@@ -1160,21 +1105,11 @@
               "providerId": "user-attribute-ldap-mapper",
               "subComponents": {},
               "config": {
-                "ldap.attribute": [
-                  "cn"
-                ],
-                "is.mandatory.in.ldap": [
-                  "true"
-                ],
-                "always.read.value.from.ldap": [
-                  "true"
-                ],
-                "read.only": [
-                  "false"
-                ],
-                "user.model.attribute": [
-                  "firstName"
-                ]
+                "ldap.attribute": ["cn"],
+                "is.mandatory.in.ldap": ["true"],
+                "always.read.value.from.ldap": ["true"],
+                "read.only": ["false"],
+                "user.model.attribute": ["firstName"]
               }
             },
             {
@@ -1183,21 +1118,11 @@
               "providerId": "user-attribute-ldap-mapper",
               "subComponents": {},
               "config": {
-                "ldap.attribute": [
-                  "mail"
-                ],
-                "is.mandatory.in.ldap": [
-                  "false"
-                ],
-                "read.only": [
-                  "false"
-                ],
-                "always.read.value.from.ldap": [
-                  "false"
-                ],
-                "user.model.attribute": [
-                  "email"
-                ]
+                "ldap.attribute": ["mail"],
+                "is.mandatory.in.ldap": ["false"],
+                "read.only": ["false"],
+                "always.read.value.from.ldap": ["false"],
+                "user.model.attribute": ["email"]
               }
             },
             {
@@ -1206,21 +1131,11 @@
               "providerId": "user-attribute-ldap-mapper",
               "subComponents": {},
               "config": {
-                "ldap.attribute": [
-                  "uid"
-                ],
-                "is.mandatory.in.ldap": [
-                  "true"
-                ],
-                "read.only": [
-                  "false"
-                ],
-                "always.read.value.from.ldap": [
-                  "false"
-                ],
-                "user.model.attribute": [
-                  "username"
-                ]
+                "ldap.attribute": ["uid"],
+                "is.mandatory.in.ldap": ["true"],
+                "read.only": ["false"],
+                "always.read.value.from.ldap": ["false"],
+                "user.model.attribute": ["username"]
               }
             },
             {
@@ -1229,113 +1144,45 @@
               "providerId": "user-attribute-ldap-mapper",
               "subComponents": {},
               "config": {
-                "ldap.attribute": [
-                  "modifyTimestamp"
-                ],
-                "is.mandatory.in.ldap": [
-                  "false"
-                ],
-                "read.only": [
-                  "true"
-                ],
-                "always.read.value.from.ldap": [
-                  "true"
-                ],
-                "user.model.attribute": [
-                  "modifyTimestamp"
-                ]
+                "ldap.attribute": ["modifyTimestamp"],
+                "is.mandatory.in.ldap": ["false"],
+                "read.only": ["true"],
+                "always.read.value.from.ldap": ["true"],
+                "user.model.attribute": ["modifyTimestamp"]
               }
             }
           ]
         },
         "config": {
-          "fullSyncPeriod": [
-            "5"
-          ],
-          "pagination": [
-            "false"
-          ],
-          "startTls": [
-            "false"
-          ],
-          "usersDn": [
-            "ou=users,dc=example,dc=org"
-          ],
-          "connectionPooling": [
-            "false"
-          ],
-          "cachePolicy": [
-            "DEFAULT"
-          ],
-          "useKerberosForPasswordAuthentication": [
-            "false"
-          ],
-          "importEnabled": [
-            "true"
-          ],
-          "enabled": [
-            "true"
-          ],
-          "changedSyncPeriod": [
-            "10"
-          ],
-          "bindCredential": [
-            "**********"
-          ],
-          "usernameLDAPAttribute": [
-            "uid"
-          ],
-          "bindDn": [
-            "cn=admin,dc=example,dc=org"
-          ],
-          "lastSync": [
-            "1698326888"
-          ],
-          "vendor": [
-            "other"
-          ],
-          "uuidLDAPAttribute": [
-            "cn"
-          ],
-          "connectionUrl": [
-            "ldap://openldap:1389"
-          ],
-          "allowKerberosAuthentication": [
-            "false"
-          ],
-          "syncRegistrations": [
-            "true"
-          ],
-          "authType": [
-            "simple"
-          ],
-          "krbPrincipalAttribute": [
-            "krb5PrincipalName"
-          ],
-          "searchScope": [
-            "1"
-          ],
-          "useTruststoreSpi": [
-            "always"
-          ],
-          "usePasswordModifyExtendedOp": [
-            "false"
-          ],
-          "trustEmail": [
-            "false"
-          ],
-          "userObjectClasses": [
-            "inetOrgPerson"
-          ],
-          "rdnLDAPAttribute": [
-            "uid"
-          ],
-          "editMode": [
-            "UNSYNCED"
-          ],
-          "validatePasswordPolicy": [
-            "false"
-          ]
+          "fullSyncPeriod": ["5"],
+          "pagination": ["false"],
+          "startTls": ["false"],
+          "usersDn": ["ou=users,dc=example,dc=org"],
+          "connectionPooling": ["false"],
+          "cachePolicy": ["DEFAULT"],
+          "useKerberosForPasswordAuthentication": ["false"],
+          "importEnabled": ["true"],
+          "enabled": ["true"],
+          "changedSyncPeriod": ["10"],
+          "bindCredential": ["secret"],
+          "usernameLDAPAttribute": ["uid"],
+          "bindDn": ["cn=admin,dc=example,dc=org"],
+          "lastSync": ["1698326888"],
+          "vendor": ["other"],
+          "uuidLDAPAttribute": ["cn"],
+          "connectionUrl": ["ldap://openldap:1389"],
+          "allowKerberosAuthentication": ["false"],
+          "syncRegistrations": ["true"],
+          "authType": ["simple"],
+          "krbPrincipalAttribute": ["krb5PrincipalName"],
+          "searchScope": ["1"],
+          "useTruststoreSpi": ["always"],
+          "usePasswordModifyExtendedOp": ["false"],
+          "trustEmail": ["false"],
+          "userObjectClasses": ["inetOrgPerson"],
+          "rdnLDAPAttribute": ["uid"],
+          "editMode": ["UNSYNCED"],
+          "validatePasswordPolicy": ["false"]
         }
       }
     ],
@@ -1346,9 +1193,7 @@
         "providerId": "aes-generated",
         "subComponents": {},
         "config": {
-          "priority": [
-            "100"
-          ]
+          "priority": ["100"]
         }
       },
       {
@@ -1357,9 +1202,7 @@
         "providerId": "rsa-generated",
         "subComponents": {},
         "config": {
-          "priority": [
-            "100"
-          ]
+          "priority": ["100"]
         }
       },
       {
@@ -1368,12 +1211,8 @@
         "providerId": "hmac-generated",
         "subComponents": {},
         "config": {
-          "priority": [
-            "100"
-          ],
-          "algorithm": [
-            "HS256"
-          ]
+          "priority": ["100"],
+          "algorithm": ["HS256"]
         }
       },
       {
@@ -1382,12 +1221,8 @@
         "providerId": "rsa-enc-generated",
         "subComponents": {},
         "config": {
-          "priority": [
-            "100"
-          ],
-          "algorithm": [
-            "RSA-OAEP"
-          ]
+          "priority": ["100"],
+          "algorithm": ["RSA-OAEP"]
         }
       }
     ]
