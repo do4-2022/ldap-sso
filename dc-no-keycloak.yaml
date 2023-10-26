@@ -14,16 +14,6 @@ services:
     volumes:
       - openldap-data:/bitnami/openldap
 
-  keycloak:
-    image: jboss/keycloak
-    environment:
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: secret
-    ports:
-      - "8080:8080"
-    depends_on:
-      - openldap
-
   gitlab:
     image: gitlab/gitlab-ce
     environment:
