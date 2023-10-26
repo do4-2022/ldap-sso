@@ -14,14 +14,38 @@ services:
     volumes:
       - openldap-data:/bitnami/openldap
 
-  keycloak:
-    image: jboss/keycloak
+  postgresql:
+    image: bitnami/postgresql:14.9.0
+    ports:
+      - "5432:5432"
     environment:
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: secret
+      - POSTGRESQL_POSTGRES_PASSWORD=secret
+      - POSTGRESQL_USERNAME=keycloak
+      - POSTGRESQL_PASSWORD=secret
+      - POSTGRESQL_DATABASE=keycloak
+    volumes:
+      - postgresql-data:/bitnami/postgresql
+
+  keycloak:
+    image: bitnami/keycloak:22.0.5
     ports:
       - "8080:8080"
+      - "8443:8443"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: secret
+      KEYCLOAK_DATABASE_HOST: postgresql
+      KEYCLOAK_DATABASE_PORT: 5432
+      KEYCLOAK_DATABASE_NAME: keycloak
+      KEYCLOAK_DATABASE_USER: keycloak
+      KEYCLOAK_DATABASE_PASSWORD: secret
+      KEYCLOAK_CREATE_REALMS: polytech
+      KEYCLOAK_DEFAULT_REALM: polytech
+      KEYCLOAK_EXTRA_ARGS: "-Dkeycloak.import=/config"
+    volumes:
+      - ./keycloak/realm.json:/config/realm.json
     depends_on:
+      - postgresql
       - openldap
 
   gitlab:
@@ -35,9 +59,10 @@ services:
       - "443:443"
       - "22:22"
     volumes:
-      - ./conf_files/gitlab.rb:/etc/gitlab/gitlab.rb
+      - ./gitlab/gitlab.rb:/etc/gitlab/gitlab.rb
       - gitlab-data:/var/opt/gitlab
 
 volumes:
   openldap-data:
+  postgresql-data:
   gitlab-data:
