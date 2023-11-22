@@ -79,7 +79,7 @@ services:
       - "443:443"
       - "22:22"
     volumes:
-      - ./gitlab/gitlab.rb:/etc/gitlab/gitlab.rb
+      - ./gitlab/with-keycloak:/etc/gitlab
       - gitlab-data:/var/opt/gitlab
 
 volumes:

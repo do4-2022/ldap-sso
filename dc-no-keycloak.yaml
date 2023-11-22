@@ -45,7 +45,7 @@ services:
       - "443:443"
       - "22:22"
     volumes:
-      - ./conf-files/gitlab:/etc/gitlab
+      - ./gitlab/no-keycloak:/etc/gitlab
       - gitlab-data:/var/opt/gitlab
 
 volumes:

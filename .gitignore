@@ -1,2 +1,3 @@
-/conf-files/gitlab
-!/conf-files/gitlab/gitlab.rb
+/gitlab
+!/gitlab/no-keycloak/gitlab.rb
+!/gitlab/with-keycloak/gitlab.rb
