@@ -1,0 +1,2 @@
+/conf-files/gitlab
+!/conf-files/gitlab/gitlab.rb
