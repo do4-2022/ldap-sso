@@ -1087,6 +1087,29 @@
               }
             },
             {
+              "id": "3ed64123-e4f9-4358-85c3-295e58072a04",
+              "name": "groups",
+              "providerId": "group-ldap-mapper",
+              "subComponents": {},
+              "config": {
+                "membership.attribute.type": ["DN"],
+                "group.name.ldap.attribute": ["cn"],
+                "membership.user.ldap.attribute": ["uid"],
+                "preserve.group.inheritance": ["true"],
+                "groups.dn": ["ou=groups,dc=example,dc=org"],
+                "mode": ["READ_ONLY"],
+                "user.roles.retrieve.strategy": [
+                  "LOAD_GROUPS_BY_MEMBER_ATTRIBUTE"
+                ],
+                "ignore.missing.groups": ["false"],
+                "membership.ldap.attribute": ["member"],
+                "memberof.ldap.attribute": ["memberOf"],
+                "group.object.classes": ["groupOfNames"],
+                "groups.path": ["/"],
+                "drop.non.existing.groups.during.sync": ["false"]
+              }
+            },
+            {
               "id": "1244409a-a340-43af-8aac-c54a288cd129",
               "name": "last name",
               "providerId": "user-attribute-ldap-mapper",
@@ -1167,7 +1190,7 @@
           "bindCredential": ["secret"],
           "usernameLDAPAttribute": ["uid"],
           "bindDn": ["cn=admin,dc=example,dc=org"],
-          "lastSync": ["1698326888"],
+          "lastSync": ["1700655434"],
           "vendor": ["other"],
           "uuidLDAPAttribute": ["cn"],
           "connectionUrl": ["ldap://openldap:1389"],
@@ -1178,8 +1201,8 @@
           "searchScope": ["1"],
           "useTruststoreSpi": ["always"],
           "usePasswordModifyExtendedOp": ["false"],
-          "trustEmail": ["false"],
-          "userObjectClasses": ["inetOrgPerson"],
+          "trustEmail": ["true"],
+          "userObjectClasses": ["inetOrgPerson, organizationalPerson"],
           "rdnLDAPAttribute": ["uid"],
           "editMode": ["UNSYNCED"],
           "validatePasswordPolicy": ["false"]
