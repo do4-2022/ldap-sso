@@ -1,3 +1,4 @@
-/gitlab
+/gitlab/no-keycloak/*
+/gitlab/with-keycloak/*
 !/gitlab/no-keycloak/gitlab.rb
 !/gitlab/with-keycloak/gitlab.rb
