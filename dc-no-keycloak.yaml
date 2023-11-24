@@ -9,8 +9,8 @@ services:
     environment:
       - LDAP_ADMIN_USERNAME=admin
       - LDAP_ADMIN_PASSWORD=secret
-      - LDAP_USERS=user01,user02
-      - LDAP_PASSWORDS=secret1,secret2
+      - LDAP_USERS=user1,user2,gitlab
+      - LDAP_PASSWORDS=secret,secret,secret
     volumes:
       - openldap-data:/bitnami/openldap
 
@@ -27,7 +27,7 @@ services:
             'host' =>  'openldap',
             'port' => 1389,
             'uid' => 'uid',
-            'bind_dn' => 'cn=admin,dc=example,dc=org',
+            'bind_dn' => 'cn=gitlab,ou=users,dc=example,dc=org',
             'password' => 'secret',
             'encryption' => 'plain',
             'verify_certificates' => false,
