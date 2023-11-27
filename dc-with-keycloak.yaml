@@ -42,8 +42,16 @@ services:
       KEYCLOAK_CREATE_REALMS: polytech
       KEYCLOAK_DEFAULT_REALM: polytech
       KEYCLOAK_EXTRA_ARGS: "-Dkeycloak.import=/config"
+
+      KEYCLOAK_ENABLE_HTTPS: true
+      KEYCLOAK_HTTPS_USE_PEM: true
+      KEYCLOAK_HTTPS_CERTIFICATE_FILE: /opt/bitnami/keycloak/certs/cert.pem
+      KEYCLOAK_HTTPS_CERTIFICATE_KEY_FILE: /opt/bitnami/keycloak/certs/key.pem
     volumes:
       - ./keycloak/realm.json:/config/realm.json
+      
+      - ./key.pem:/opt/bitnami/keycloak/certs/key.pem
+      - ./cert.pem:/opt/bitnami/keycloak/certs/cert.pem
     depends_on:
       - postgresql
       - openldap
@@ -54,6 +62,7 @@ services:
       GITLAB_OMNIBUS_CONFIG: |
         # external_url 'https://gitlab.example.com'
         # Add any other gitlab.rb configuration here, each on its own line
+        gitlab_rails['env'] = {"SSL_CERT_FILE" => "/etc/gitlab/trusted-certs/keycloak.crt"}
         gitlab_rails['ldap_enabled'] = true
         gitlab_rails['ldap_servers'] = {
           'main' => {
@@ -81,6 +90,7 @@ services:
     volumes:
       - ./gitlab/with-keycloak:/etc/gitlab
       - gitlab-data:/var/opt/gitlab
+      - ./cert.pem:/etc/gitlab/trusted-certs/keycloak.crt
 
 volumes:
   openldap-data:
